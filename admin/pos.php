@@ -1,0 +1,594 @@
+<?php 
+ob_start();
+session_start();
+include ("../_init.php");
+
+// Redirect, If user is not logged in
+if (!is_loggedin()) {
+  redirect(root_url() . '/index.php?redirect_to=' . url());
+}
+
+// REDIRECT, IF USER HAVEN'T READ PERMISSION
+if (user_group_id() != 1 && !has_permission('access', 'create_sell_invoice')) {
+  redirect(root_url() . '/'.ADMINDIRNAME.'/dashboard.php');
+} 
+
+$panel_position = $user->getPreference('pos_side_panel') ? $user->getPreference('pos_side_panel') : 'right';
+// ADD BODY CLASS
+$document->setBodyClass($panel_position.'-panel');
+
+$body_class = $document->getBodyClass();
+
+// FETCH PRINTER
+$printer_id = store('receipt_printer');
+$statement = $db->prepare("SELECT * FROM `printers` LEFT JOIN `printer_to_store` p2s ON (`printers`.`printer_id`=`p2s`.`pprinter_id`) WHERE `printer_id` = ?");
+$statement->execute(array($printer_id));
+$printer = $statement->fetch(PDO::FETCH_ASSOC);
+
+// FETCH ORDER PRINTERS
+$order_printers = array();
+$order_printer_ids = json_decode(store('order_printers') ?? '[]'); // Ensure JSON string is not null
+if ($order_printer_ids) {
+	foreach ($order_printer_ids as $id) {
+		$statement = $db->prepare("SELECT * FROM `printers` WHERE `printer_id` = ?");
+		$statement->execute(array($id));
+		$order_printers[] = $statement->fetch(PDO::FETCH_ASSOC);
+	}
+}
+?>
+
+<!DOCTYPE html>
+<html lang="<?php echo $document->langTag($active_lang);?>" ng-app="angularApp">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=9">
+	<title>
+		<?php echo trans('title_pos'); ?> &raquo; <?php echo store('name'); ?>	
+	</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="google" content="notranslate">
+    
+	<!-- Favicon -->
+    <?php if (store('favicon')): ?>
+		<link rel="shortcut icon" href="../assets/itsolution24/img/logo-favicons/<?php echo store('favicon'); ?>">
+	<?php else: ?>
+		<link rel="shortcut icon" href="../assets/itsolution24/img/logo-favicons/nofavicon.png">
+	<?php endif; ?>
+
+	<!-- ALL CSS -->
+
+	<?php if (DEMO || USECOMPILEDASSET) : ?>
+
+		<link href="../assets/itsolution24/cssmin/pos<?php echo isRTL() ? '-rtl' : null;?>.css" type="text/css" rel="stylesheet">
+
+	<?php else : ?>
+		
+	    <!-- Bootstrap CSS -->
+	    <link href="../assets/bootstrap/css/bootstrap<?php echo isRTL() ? '-rtl' : null;?>.min.css" type="text/css" rel="stylesheet">
+
+	    <!-- jquery UI CSS -->
+        <link type="text/css" href="../assets/jquery-ui/jquery-ui.min.css" type="text/css" rel="stylesheet">
+
+	    <!-- Font Awesome CSS -->
+	    <link href="../assets/font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet">
+
+	   
+	    <!-- Perfect Scrollbar CSS -->
+	    <link href="../assets/perfectScroll/css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+
+	    <!-- Select2 CSS -->
+	    <link href="../assets/select2/select2.min.css" type="text/css" rel="stylesheet">
+
+	    <!-- Toastr CSS -->
+	    <link href="../assets/toastr/toastr.min.css" type="text/css" rel="stylesheet">
+
+	    <!-- jQuery ContextMenu CSS -->
+	    <link  href="../assets/contextMenu/dist/jquery.contextMenu.min.css" type="text/css" rel="stylesheet">
+
+		<!-- Filemanager CSS -->
+	    <link href="../assets/itsolution24/css/filemanager/dialogs.css" type="text/css" rel="stylesheet">
+	    <link href="../assets/itsolution24/css/filemanager/main.css" type="text/css" rel="stylesheet">
+
+	    <!-- Theme CSS -->
+	    <link href="../assets/itsolution24/css/theme.css" type="text/css" rel="stylesheet">
+
+	    <!-- Skin Black CSS -->
+	    <link href="../assets/itsolution24/css/skins/skin-black.css" type="text/css" rel="stylesheet">
+
+	    <!-- Skin Blue CSS -->
+	    <link href="../assets/itsolution24/css/skins/skin-blue.css" type="text/css" rel="stylesheet">
+
+	    <!-- Skin Green CSS -->
+	    <link href="../assets/itsolution24/css/skins/skin-green.css" type="text/css" rel="stylesheet">
+
+	    <!-- Skin Red CSS -->
+	    <link href="../assets/itsolution24/css/skins/skin-red.css" type="text/css" rel="stylesheet">
+
+	    <!-- Skin Yellow CSS -->
+	    <link href="../assets/itsolution24/css/skins/skin-yellow.css" type="text/css" rel="stylesheet">
+
+	    <!-- Main CSS -->
+	    <link href="../assets/itsolution24/css/main.css" type="text/css" rel="stylesheet">
+
+		<!-- Skeleton CSS -->
+		<link href="../assets/itsolution24/css/pos/skeleton.css" rel="stylesheet" type="text/css">
+
+		<!-- Main CSS -->
+		<link href="../assets/itsolution24/css/pos/pos.css" rel="stylesheet" type="text/css">
+
+		<!-- Responsive CSS -->
+		<link href="../assets/itsolution24/css/pos/responsive.css" rel="stylesheet" type="text/css">
+
+		<?php if (isRTL()) :?>
+            <link href="../assets/itsolution24/css/rtl.css" type="text/css" rel="stylesheet">
+        <?php endif;?>
+
+	<?php endif ?>
+
+	<!-- This is Mandatory -->
+	<style type="text/css">
+		body::after { 
+			content: ""; background: url(../assets/itsolution24/img/pos/patterns/<?php echo $user->getPreference('pos_pattern') ? $user->getPreference('pos_pattern') : 'armysuit.jpg'; ?>) repeat repeat;opacity: 0.4;filter: alpha(opacity=40);top: 0;left: 0;bottom: 0;right: 0;position: absolute;z-index: -1;
+		}
+		.modal-lg .modal-content {
+			border-color: #ffffff;
+		}
+	</style>
+
+	<!-- JS -->
+	<script type="text/javascript"> 
+		var baseUrl = "<?php echo trim(root_url(),'/'); ?>";
+		var adminDir = "<?php echo ADMINDIRNAME; ?>";
+		var user = <?php echo json_encode(array_diff_key(get_the_user(user_id()), array_flip(array('password','raw_password','pass_reset_code','reset_code_time')))); ?>;
+	    var settings = <?php echo json_encode(array_diff_key(get_all_preference(), array_flip(array('smtp_password','ftp_password')))); ?>;
+        var store = <?php echo json_encode(array_diff_key(store(), array_flip(array('smtp_password','ftp_password','preference')))); ?>;
+	    var isInstallment = <?php echo INSTALLMENT && (user_group_id() == 1 || has_permission('access', 'create_installment'))? 1 : 0;?>;
+	    var deviceType = '<?php echo device_type(); ?>';
+	    var filemanager = '<?php echo get_preference('ftp_hostname') && get_preference('ftp_username') ? 'ftp' : 'local'; ?>';
+	    var orderPrinters = <?php echo json_encode($order_printers); ?>;
+	    var printer = <?php echo json_encode($printer); ?>;
+	    var slideDirection = '<?php echo $user->getPreference('pos_side_panel') == 'left' ? 'right' : 'left'; ?>';
+	    var sendReportEmail = '<?php echo user_group_id() == 1 || has_permission('access', 'send_report_via_email');?>';
+	</script>
+
+</head>
+<body  id="pos-page" class="pos sidebar-mini <?php echo $body_class; ?>" ng-controller="PosController">
+<div class="hidden"><?php include('../assets/itsolution24/img/iconmin/icon.svg');?></div>
+<?php include('../_inc/template/pos_skeleton.php'); ?>
+	<!-- POS Content-Wrapper Start -->
+	<div class="pos-content-wrapper">
+		
+		<div id="vertial-toolbar">
+			<?php if (user_group_id() == 1 || has_permission('access', 'add_giftcard')) : ?>
+			<span ng-click="GiftcardCreateModal();" class="toolbar-icon bg-orange mt-5" title="<?php echo trans('text_gift_card');?>">
+				<span class="expand bg-orange"><?php echo trans('button_sell_gift_card'); ?></span>
+				<svg class="svg-icon"><use href="#icon-card"></svg>
+			</span>
+			<?php endif; ?>
+			<?php if (user_group_id() == 1 || has_permission('access', 'create_product')) : ?>
+			<span ng-click="createNewProduct();" class="toolbar-icon bg-blue mt-5" title="<?php echo trans('text_add_product');?>">
+				<span class="expand bg-blue"><?php echo trans('button_add_product'); ?></span>
+				<span class="fa fa-plus"></span>
+			</span>
+			<?php endif; ?>
+		</div>
+
+		<?php include('../_inc/template/partials/top.php'); ?>
+
+		<!-- Content Wrapper Start -->
+		<div class="content-area">
+			<div class="row-group">
+				<div class="content-row">
+
+					<!-- All Product List Section Start-->
+					<div id="left-panel" class="pos-content" style="<?php echo $user->getPreference('pos_side_panel') == 'left' ? 'float:right' : null; ?>">
+						<div class="contents">
+							<div id="searchbox">
+								<input ng-change="showProductList()" onClick="this.select();" type="text" id="product-name" name="product-name" ng-model="productName" placeholder="<?php echo trans('text_search_product'); ?>"  autofocus>
+								<svg class="svg-icon search-btn"><use href="#icon-pos-search"></svg>
+								<div class="category-search">
+									<select class="form-control select2" name="category-search-select" id="category-search-select">
+							          	<option value=""><?php echo sprintf(trans('text_view_all'), 'Products'); ?></option>
+							          	<?php foreach (get_category_tree(array('filter_fetch_all' => true)) as $category_id => $category_name) : 
+							          		if (get_total_valid_category_item($category_id) <= 0) { continue; } ?>
+							          		<option value="<?php echo $category_id; ?>"><?php echo $category_name; ?> (<?php echo get_total_valid_category_item($category_id); ?>)</option>
+							          	<?php endforeach; ?>
+							        </select>
+								</div>
+							</div>
+							<div id="item-list">
+								<!-- <div class="pos-product-pagination pagination-top"></div> -->
+								<div ng-show="showLoader" class="ajax-loader">
+									<img src="../assets/itsolution24/img/loading2.gif">
+								</div>
+								<div class="add-new-product-wrapper" data-ng-class="{'show': showAddProductBtn}">
+									<div class="add-new-product">
+										<div class="add-new-product-btn">
+											<button ng-click="createNewProduct()" class="btn btn-lg btn-danger" style="width:auto;">
+												<span class="fa fa-fw fa-plus"></span>
+												<span><?php echo trans('button_add_product'); ?></span>
+											</button>
+											<a ng-click="OpenPurchaseProductModal();" class="btn btn-lg btn-danger" style="width:auto;">
+												<span class="fa fa-fw fa-money"></span>
+												<span><?php echo trans('button_add_purchase'); ?></span>
+											</a>
+										</div>
+									</div>
+								</div>
+								
+								<div class="pos-product-pagination pagination-bottom"></div>
+							</div>
+							<div id="total-amount">
+								<div class="total-amount-inner">
+									<span class="currency-symbol">
+										<?php echo get_currency_symbol(); ?>
+									</span> 
+									<span class="main-amount">
+										{{ totalPayable | formatDecimal:<?php echo get_decimal_place();?> }}
+									</span>
+								</div>
+								<div id="salesman">
+									<input type="hidden" name="salesman_id" value="<?php echo user_id();?>">
+									<!--
+									<select id="salesman_id" name="salesman_id"> 
+										<option value=""><?php //echo trans('text_select_salesman');?></option>
+										<?php //foreach (get_salesmans() as $salesman) : ?>
+											<option value="<?php //echo $salesman['id']; ?>" <?php //echo store('salesman_id') == $salesman['id'] ? 'selected' : null; ?>>
+												<?php //echo $salesman['username']; ?>
+											</option>
+										<?php //endforeach; ?>
+									</select>
+									-->
+								</div>
+								<div id="created_at">
+									<input class="data-field" ng-init="createdAt='<?php echo date('Y-m-d');?>'" type="text" name="created_at" value="<?php echo date('Y-m-d');?>" ng-model="createdAt">
+								</div>
+								<a id="invoice-note" ng-click="addInvoiceNote()" data-note="" title="<?php echo trans('text_add_note'); ?>">
+									<span class="fa fa-fw fa-comments-o"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- All Product Section End -->
+
+					<!--Invoive Section Start-->
+					<div id="right-panel" class="pos-content" style="<?php echo $user->getPreference('pos_side_panel') == 'left' ? 'float:left' : null; ?>">
+						<div class="invoice-area">
+							<div class="well well-sm">
+								
+								<!-- Customer Area Start-->
+								<div id="people-area">
+									<input ng-change="showCustomerList()" onClick="this.select();" type="text" id="customer-name" name="customer-name" ng-model="customerName" ng-disabled="isEditMode" autocomplete="off">
+									<input type="hidden" name="customer-id" value="{{ customerId }}">
+									<div class="customer-icon">
+										<a ng-click="showCustomerList(true)" onClick="return false;" href="#">
+											<svg class="svg-icon"><use href="#icon-pos-customer"></svg>
+										</a>
+									</div>
+									<div class="edit-icon pointer">
+										<span ng-click="CustomerEditModal();" class="fa fa-edit"></span>
+										<span id="add-customer-mobile-number-handler" class="fa fa-mobile" style="font-size:18px;margin-left:5px;"></span>
+										<input id="customer-mobile-number" type="hidden" name="customer-mobile-number">
+									</div>
+									<div ng-click="createNewCustomer();" class="add-icon">
+										<svg class="svg-icon"><use href="#icon-pos-plus"></svg>
+									</div>
+									<div class="previous-due">
+										<div class="previous-due-inner">
+											<h4>
+												<?php echo trans('label_due'); ?>
+												<a ng-show="dueAmount" href="customer_profile.php?customer_id={{ customerId }}&type=all_due" target="_blink">
+													<span id="dueAmount">
+														{{ dueAmount| formatDecimal:2 }}
+													</span>
+												</a>
+												<div ng-show="!dueAmount">
+													<span id="dueAmount">
+														{{ dueAmount| formatDecimal:2 }}
+													</span>
+												</div>
+											</h4>
+										</div>
+									</div>
+									<div ng-hide="hideCustomerDropdown" id="customer-dropdown" class="slidedown-menu">
+										<div class="slidedown-header">
+										</div>
+										<div class="slidedown-body">
+											<ul class="customer-list list-unstyled">
+												<li ng-repeat="customers in customerArray">
+													<a href="#" ng-click="addCustomer(customers);" onclick="return false;"><span class="fa fa-fw fa-user"></span>{{ customers.customer_name }} ({{ customers.customer_mobile || customers.customer_email }})
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- Customer Area Start-->
+
+								
+								<!-- Invoice Item End-->
+
+								<!-- Action Button Section Start-->
+								<div id="pay-button" class="text-center">
+									<div class="btn-group btn-group-justified">
+									    
+									    
+										<div class="btn-group">
+										<button type="button" class="btn btn-primary" data-backdrop="false" data-toggle="modal" data-target="#exampleModal1">
+                                          M-PESA
+                                        </button>
+                                        
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                          <div class="modal-dialog modal-md" role="document">
+                                            <div class="modal-content">
+                                                                                  
+                                              <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel1">MPESA - Payment  <div class="customerdata"></div></h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                            
+                                              <div class="modal-body">
+                                                  <div class="row">
+                                                      <div class="col-md-12">
+                                                          <center><h5>Recent Payments</h5></center>
+                                    					  <table class="table table-bordered table-striped">
+                                    		                <thead>
+                                    		                <tr>
+                                    		                    <th>Customer Name</th>
+                                    		                    <th>Amount</th>
+                                    		                    <th>Transaction Code</th>
+                                    		                    <th>Action</th>
+                                    		                </tr>
+                                    		                </thead>
+                                    						<tbody id="clientdata">
+                                    						</tbody>
+                                    		            </table>
+                                                      </div>
+                                                  </div>
+                                                  <form class="form-inline" id="cpayment">
+                                                      <br>
+                                                      <br>
+                                                      <div class="form-group mx-sm-3 mb-2">
+                                                          
+                                                        <label for="inputPassword2" class="sr-only">Payable Amount  </label>
+                                                        <?php 
+                                                        if( store('name') == "RobbyMart T-Point"){
+                                                            $storedID = '7413330';
+                                                        }else{
+                                                           $storedID = '7413250'; 
+                                                        }
+                                                       
+                                                        
+                                                        ?>
+                                                        <input type="hidden" style="color:red;" id="tillno" name="tillno" value="<?php echo $storedID;?>">
+                                                          <input type="text" style="color:red;" id="amount" name="amount" value="{{ totalPayable}}">
+                                                      </div>
+                                                      <br>
+                                                      <br>
+                                                      <button  class="btn btn-primary mb-2" style="width:150px; height:40px;"><h6>Check Payment</h6></button>
+                                                    </form>
+									        
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+										</div>
+										<div class="btn-group">
+											<button ng-click="payNow()" onClick="return false;" class="btn btn-success" data-loading-text="Processing..." title="Payment">
+												<span class="fa fa-fw fa-money"></span> 
+												<?php echo trans('button_pay'); ?> 
+											</button> 
+										</div>
+										<div class="btn-group">
+											<button ng-click="HoldingOrderModal()" on-click="return false;" class="btn btn-danger" data-loading-text="Processing..." title="Order Holdinbg">
+												<span class="fa fa-fw fa-crosshairs"></span> 
+												<?php echo trans('button_hold'); ?>
+											</button>
+										</div>
+									</div>
+								</div>
+								<!-- Action Button Section End-->
+								
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+					<!-- Invoice Section End -->
+
+				</div>
+			</div>
+		</div>
+		<!-- Content Wrapper End -->
+
+	</div>   
+	<!-- POS Content Wrapper End -->
+
+	<!-- Rightbar Toggle Handler -->
+	<div id="minicart">
+		<div class="minicart-content">
+			<div class="heading">
+				<div class="title"></div>
+			</div>
+			<div class="body">
+				<div class="items">{{ totalItem }} ({{ totalQuantity }})</div>
+			</div>
+			<div class="footer"></div>
+		</div>
+	</div>
+
+	<!-- Scrolling Sidebar Start -->
+    <aside class="scrolling-sidebar scrolling-sidebar-dark">
+        <h2 class="scrolling-sidebar-title r-0"><?php echo trans('text_reports');?></h2>
+        <?php 
+        $statement = $db->prepare("SELECT * FROM `shortcut_links` WHERE `type` = ? AND `status` = ? ORDER BY `sort_order` ASC");
+        $statement->execute(array('report', 1));
+        $shortcut_links = $statement->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+        <div class="searchbox text-center" style="margin: 3px 5px 2px 5px;">
+          <input ng-model="searchList" class="form-control r-50" type="search" name="search" placeholder="<?php echo trans('placeholder_search_here');?>" style="border:2px solid #999;">
+        </div>
+        <ul filter-list="searchList" class="list-group" style="padding: 0 10px 10px; 10px">
+        <?php $inc=0;foreach ($shortcut_links as $link) : $btnColor=$inc % 2 == 0 ? 'success' : 'success'?>
+          <?php if (user_group_id() == 1 || has_permission('access', $link['permission_slug'])) :?>
+            <li class="list-group-item" style="padding:2px;">
+                <a class="btn btn-<?php echo $btnColor;?> btn-block" style="font-size:16px;text-align:left;border-radius:0;pading:3px;" href="<?php echo root_url().$link['href'];?>"><span class="fa fa-fw <?php echo $link['icon'];?>"></span> <?php echo $link['title'];?></a>
+            </li>
+          <?php endif;?>
+        <?php $inc++;endforeach;?>
+        </ul>                    
+    </aside>
+    <div class="scrolling-sidebar-bg"></div>
+    <div class="scrolling-sidebar-mask"></div>
+    <!-- Scrolling Sidebar End -->
+
+	<?php if (DEMO || USECOMPILEDASSET) : ?>
+
+		<script src="../assets/itsolution24/jsmin/pos.js" type="text/javascript"></script>
+
+	<?php else : ?>
+
+		<!-- jQuery JS  -->
+	    <script src="../assets/jquery/jquery.min.js" type="text/javascript"></script> 
+
+	    <!-- jQuery Ui JS -->
+        <script src="../assets/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+
+	    <!-- Bootstrap JS -->
+	    <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+	    <!-- Edit Area -->
+        <script src="../assets/edit-area/edit_area_full.js" type="text/javascript"></script>
+
+		<!-- Angular JS -->
+	    <script src="../assets/itsolution24/angularmin/angular.js" type="text/javascript"></script> 
+
+	    <!-- AngularApp JS -->
+	    <script src="../assets/itsolution24/angular/angularApp.js" type="text/javascript"></script>
+
+	    <!-- Filemanager JS -->
+	    <script src="../assets/itsolution24/angularmin/filemanager.js" type="text/javascript"></script>
+
+	    <!-- Angular JS Modal -->
+		<script src="../assets/itsolution24/angularmin/modal.js" type="text/javascript"></script>
+
+		<!-- Bootstrap Datepicker JS -->
+		<script src="../assets/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+
+		<!-- Bootstrap Timepicker JS -->
+		<script src="../assets/timepicker/bootstrap-timepicker.min.js" type="text/javascript" ></script>
+
+		<!-- Select2 JS -->
+		<script src="../assets/select2/select2.min.js" type="text/javascript"></script>
+
+		<!-- Perfect Scroolbar JS -->
+		<script src="../assets/perfectScroll/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+
+		<!-- Sweet ALert JS -->
+		<script src="../assets/sweetalert/sweetalert.min.js" type="text/javascript"></script>
+
+		<!-- Toastr JS -->
+		<script src="../assets/toastr/toastr.min.js" type="text/javascript"></script>
+
+		<!-- Accounting JS -->
+		<script src="../assets/accounting/accounting.min.js" type="text/javascript"></script>
+
+		<!-- Underscore JS -->
+		<script src="../assets/underscore/underscore.min.js" type="text/javascript"></script>	
+
+		<!-- Context Menue JS -->
+		<script src="../assets/contextMenu/dist/jquery.contextMenu.min.js"></script>
+
+		<!-- IE JS -->
+		<script src="../assets/itsolution24/js/ie.js" type="text/javascript"></script>
+
+		<!-- Common JS -->
+		<script src="../assets/itsolution24/js/common.js" type="text/javascript"></script>
+
+		<!-- Main JS -->
+		<script src="../assets/itsolution24/js/main.js" type="text/javascript"></script>
+
+		<!-- POS Main JS -->
+		<script src="../assets/itsolution24/js/pos/pos.js" type="text/javascript"></script>
+
+<?php endif; ?>
+
+<script>
+    $('#cpayment').on('submit', (function (e) {
+    
+      e.preventDefault();
+      var formData = new FormData(this);
+        
+      $.ajax({
+        type: 'POST',
+        url: "ROBY/confirm_payment.php",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+        $("#clientdata").empty();
+        console.log(data);
+        
+        var json=JSON.parse(data);
+        console.log(json.error);
+         if (json.error == "development") {
+
+           
+           $.each(JSON.parse(data), function (key, value) {
+							$('#clientdata').append("<tr style='background-color'>\
+										<td colspan='4'>"+'No Transaction found!'+"</td>\
+										</tr>");
+						})
+
+          }else{
+         $.each(JSON.parse(data), function (key, value) {
+							$('#clientdata').append("<tr>\
+										<td>"+value.customeName+"</td>\
+										<td>"+value.amount+"</td>\
+										<td>"+value.transactionId+"</td>\
+										<td>"+"<a href='#' onclick='confirm("+value.id+")'>Confirm</a>"+"</td>\
+										</tr>");
+						})
+          }
+        }
+
+      });
+    }));
+    
+    function confirm(id){
+        console.log(id);
+              $.ajax({
+        type: 'POST',
+        url: "ROBY/verified_payment.php",
+        data: { id:id},
+        success: function (data) {
+            Toastify({
+
+text: "This is a toast",
+
+duration: 3000
+
+}).showToast();
+        }
+
+      });
+    }
+</script>
+<script src="../assets/itsolution24/angular/modals/AddInvoiceNoteModal.js" type="text/javascript"></script>
+<script src="../assets/itsolution24/angular/modals/AddCustomerMobileNumberModal.js" type="text/javascript"></script>
+<script src="../assets/itsolution24/angular/modals/HoldingOrderModal.js" type="text/javascript"></script>
+<script src="../assets/itsolution24/angular/modals/HoldingOrderDetailsModal.js" type="text/javascript"></script>
+<script src="../assets/itsolution24/angular/controllers/PosController.js" type="text/javascript"></script>
+<noscript>
+    <div class="global-site-notice noscript">
+        <div class="notice-inner">
+            <p><strong>JavaScript seems to be disabled in your browser.</strong><br>You must have JavaScript enabled in
+                your browser to utilize the functionality of #MODERN POS.</p>
+        </div>
+    </div>
+</noscript>
+</body>
+</html>

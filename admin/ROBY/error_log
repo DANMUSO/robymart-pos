@@ -1,0 +1,13 @@
+[06-Aug-2024 11:14:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rollback() on null in /home/robymart/public_html/modernpos/admin/ROBY/cronjob.php:70
+Stack trace:
+#0 {main}
+  thrown in /home/robymart/public_html/modernpos/admin/ROBY/cronjob.php on line 70
+[06-Aug-2024 11:15:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rollback() on null in /home/robymart/public_html/modernpos/admin/ROBY/cronjob.php:70
+Stack trace:
+#0 {main}
+  thrown in /home/robymart/public_html/modernpos/admin/ROBY/cronjob.php on line 70
+[06-Aug-2024 11:16:49 UTC] PHP Warning:  Error while sending QUERY packet. PID=31379 in /home/robymart/public_html/modernpos/admin/ROBY/cronjob.php on line 70
+[06-Aug-2024 11:17:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rollback() on null in /home/robymart/public_html/modernpos/admin/ROBY/cronjob.php:70
+Stack trace:
+#0 {main}
+  thrown in /home/robymart/public_html/modernpos/admin/ROBY/cronjob.php on line 70

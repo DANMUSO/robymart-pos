@@ -1,0 +1,1545 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head> 
+	<meta charset="utf-8">
+	
+	<title>ITsolution24.com | Modern-POS Documentation</title>
+	
+	<meta name="description" content="Hi there, thank you for purchasing this software. If you have any questions that are beyond the scope of this documentation, please feel free to contact me via the comment section or email me at &#109;&#97;&#105;&#109;&#97;&#105;&#114;&#101;&#108;&#64;&#121;&#97;&#104;&#111;&#111;&#46;&#99;&#111;&#109; Thanks.">
+	<meta name="author" content="Najmul Hossain & MD Tajmul">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="copyright" content="ITsolution24">
+	<meta name="generator" content="Documenter v1.0 http://rxa.li/documenter">
+	<meta name="date" content="2017-10-30T00:00:00+06:00">
+	
+	<link rel=icon href="assets/images/favicon.png">
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	<link rel="stylesheet" href="assets/css/custom.css" media="screen">
+
+	<script src="assets/js/jquery.3.3.1.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<script src="assets/js/jquery.easing.js"></script>
+	
+    <!-- Syntax Highlighter -->
+    <script type="text/javascript" src="assets/js/prettify/prettify.js"></script>
+    <link rel="stylesheet" href="assets/js/prettify/themes/theme-balupton.css" media="screen" />
+
+	<script>document.createElement('section');var duration=500,easing='swing';</script>
+	
+	
+	<style>
+		html{background-color:#EEEEEE;color:#383838;background-repeat:repeat;background-attachment:scroll;}
+		::-moz-selection{background:#333636;color:#C5D52B;}
+		::selection{background:#333636;color:#C5D52B;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/logo.png);}
+		a{color:#008C9E;}
+		hr{border-top:1px solid #D4D4D4;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ol a{background-color:#343838;color:#FFFFFF;}
+		#documenter_sidebar ol a{-webkit-text-shadow:1px 1px 0px #494F4F;-moz-text-shadow:1px 1px 0px #494F4F;text-shadow:1px 1px 0px #494F4F;}
+		#documenter_sidebar ol{border-top:1px solid #212424;}
+		#documenter_sidebar ol a{border-top:1px solid #494F4F;border-bottom:1px solid #212424;color:#FFFFFF;text-align:left;margin-left:10px;}
+		#documenter_sidebar ol a:hover{background:#333636;color:#C5D52B;border-top:1px solid #333636;}
+		#documenter_sidebar ol a.current{background:#333636;color:#C5D52B;border-top:1px solid #333636;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+		#documenter_content .no-margin{
+			margin:0 0;
+		}
+		.vimportant{
+			color:red;
+			font-weight: bold;
+			font-size:28px!important;
+		}
+	</style>
+	<script src="https://use.fontawesome.com/a3b96ba6a7.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ol id="documenter_nav">
+		    <li class="page-scroll">
+				<a href="#overview">
+					<i class="fa fa-angellist margin"></i>
+					Overview
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#installation">
+					<i class="fa fa-android margin"></i>
+					Installation
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#dashboard">
+					<i class="fa fa-home margin"></i>
+					Dashboard
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#point">
+					<i class="fa fa-shopping-cart margin"></i>
+					Point of sales
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#invoice">
+					<i class="fa fa-print margin"></i>
+					Sell
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#giftcard">
+					<i class="fa fa-users margin"></i>
+					Gift Card
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#quotation">
+					<i class="fa fa-star margin"></i>
+					Quotatiton
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#intstallment">
+					<i class="fa fa-print margin"></i>
+					Installment
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#purchase">
+					<i class="fa fa-users margin"></i>
+					Purchase
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#stock-transfer">
+					<i class="fa fa-star margin"></i>
+					Stock Transfer
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#product">
+					<i class="fa fa-star margin"></i>
+					Product
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#customer">
+					<i class="fa fa-users margin"></i>
+					Customer
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#supplier">
+					<i class="fa fa-users margin"></i>
+					Supplier
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#accounting">
+					<i class="fa fa-pie-chart margin"></i>
+					Accounting
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#expense">
+					<i class="fa fa-plus-circle margin"></i>
+					Expenditure
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#loan">
+					<i class="fa fa-plus-circle margin"></i>
+					Loan Manager
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#report">
+					<i class="fa fa-flag margin"></i>
+					Reports
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#analysis">
+					<i class="fa fa-pie-chart margin"></i>
+					Analytics
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#sms">
+					<i class="fa fa-pie-chart margin"></i>
+					SMS
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#user">
+					<i class="fa fa-user margin"></i>
+					User
+				</a>
+			</li>
+
+			<li class="page-scroll">
+				<a href="#filemanager">
+					<i class="fa fa-suitcase margin"></i>
+					Filemanager
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#setting">
+					<i class="fa fa-cog margin"></i>
+					Settings
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#other">
+					<i class="fa fa-paper-plane margin"></i>
+					Other	
+				</a>
+			</li>
+			<li class="page-scroll">
+				<a href="#credits">
+					<i class="fa fa-paper-plane margin"></i>
+					Credits	
+				</a>
+			</li>
+
+		</ol>
+		<div id="documenter_copyright">
+		made with the <a href="http://rxa.li/documenter">Documenter v1.6</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+
+
+<div class="container-fluid">	
+<!-- overview start -->
+
+<section id="overview">
+	<h1 style="font-size:35px">Modern POS - Point of Sale with Stock Management System</h1>
+	<h4>Thanks for purchasing</h4>
+	<p>Hi Please read the documentation properly If you have any questions that are beyond the scope of this documentation, please feel free to contact us via the comment section on codecanyon.net or email us at itsolution24bd@gmail.com</p>
+	<h3>Our support working hours are listed in GMT+6 below:</h3>
+		<p>► Sunday to Thursday : 9:00 AM to 5:00 PM</p>
+		<p>► Response time Upto 2 days.</p>
+		<p>► Friday & Saturday is Closed.</p>
+<!-- 	<h3>Overview</h3> -->
+<!-- 	<ul>
+		 <li> If you want to  store all data in your computer so You can use XAMPP or wamp for Windows Operating System and MAMP For Mac operating system</li>
+		 <li> If you want to store all data on the internet so <a href="https://itsolution24.com/contact.php" target="_blank">contact us</a> we will set up everything quickly.
+		 </li>
+		<h4 style="margin-left:40px;">Advantage of using internet for data store</h4>
+		 <ul>
+		 	<li> Your all data will be 100% secured if your computer doesn't work or damage.</li>
+		 	<li> You can see all information from everywhere about your shop.</li>
+		 	<li> You can see all information by using your Mobile phone.</li>
+		 	<li> You can monitor your shop from home.</li>
+		 </ul>
+	</ul> -->
+</section>
+<!-- overview end -->
+
+<!-- installation part start -->
+<section id="installation">
+
+	<h1>Process of Installation</h1><hr class="notop">
+	<p style="background-color:yellow;padding: 15px"><strong>Important:</strong>If you want to get installation live support(anydesk/teamviwer) from our Expert Team Member, knock us from our codecanyon profile page. (charges apply).</p>
+	<h3>Pre-Requirements</h3>
+	<ul>
+		<li class="vimportant">Internet connection(Mandatory)</li>
+		<li class="vimportant">Create a new database , Make sure database is completely blank</li>
+		<li class="vimportant">if you install it in subdirectory ,change the subdirectory value in config.php . <code>define('SUBDIRECTORY', 'modernpos');</code> </li>
+		<li>The maximum execution time of your server can't be less than 5 minutes. You may update php.ini file for this</li>
+		<li>To get Installation service from our Expert Support Team contact us at itsolution24bd@gmail.com </li>
+	</ul>
+	<p>You have to follow this article carefully</p>
+	<h3>1st : Install a software according your Operating System</h3>
+	<h4>Installation of WAMP for Windows</h4>
+	<ul>
+		<li><a href="https://sourceforge.net/projects/wampserver/files/latest/download" target="_blank">Downlaod</a> and install WAMP software in your computer</li>
+		<li>Go to c: drive > WAMP folder> www folder > paste modernpos folder(This you will get in our package). </li>
+		<li>Run WAMP software</li>
+	</ul>
+
+	<h4>Installation of XAMPP for Windows</h4>
+	<ul>
+		<li><a href="https://sourceforge.net/projects/xampp/files/latest/download" target="_blank">Download</a> and <a href="https://premium.wpmudev.org/blog/setting-up-xampp/" target="_blank">install</a>  XAMPP software in your computer</li>
+		<li>Go to c: drive >XAMPP folder> htdocs folder > paste modernpos folder(This you will get in our package). </li>
+		<li>Run XAMPP software and start Apache and MySQL from XAMPP control panel</li>
+	</ul>
+
+
+	<h4>Installation of MAMP for MAC</h4>
+	<ul>
+		<li>Go to the <a href="https://sourceforge.net/projects/mamp/files/latest/download">link </a> and download MAMP. Once the download is finished, open the downloaded file. Drag and drop the image file inside it to your Applications folder. </li>
+
+		<li>Paste modernpos folder (This you will get in our package) your MAMP document root folder </li>
+		<li>Run MAMP</li>
+	</ul>
+	<h4>Installation of LAMP for Linux</h4>
+	<ul>
+		<li>Go to the <a href="https://bitnami.com/redirect/to/583992/bitnami-lampstack-7.2.19-2-linux-x64-installer.run">link</a>  and download LAMP. Once the download is finished install it. </li>
+
+		<li>Paste modernpos folder (This you will get in our package) your LAMP document root folder </li>
+		<li>Run LAMP</li>
+	</ul>
+
+	<h3>2nd : Follow this step</h3>
+	<ul>
+		<li>Visit <b style="color:red"> YOUR_INSTALL_PATH/install </b>here you will get Six step for installation.
+		<li>Visit  http://YOURDOMAIN.COM/modernpos/install ( if you install it on online server)
+		</li>
+		<li>
+			 STEP-01 : You can see a requirement list, after full-fill the requirement click Next.
+			 <img src="assets/images/1.png" alt="">
+		</li>
+		
+		<li>
+			 STEP-02: <br>
+			a) Use your envato login username <br>
+			b) Use your product purchase code <a href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code-">Where i will get this?</a><br>
+			<img src="assets/images/2.png" alt="">
+		</li>
+
+		
+
+		<li>
+			 STEP-03: <br>
+			a) Provide Hostname localhost(if you are installing in your pc).<br>
+			b) Create a database(you have to create a database before starting the installation process)<br>
+			c) Provide database username.<br>
+			d) Provide database password.<br>
+			e) Database port (default is 3306, you can change if need)<br>
+			f) Next step
+			<img src="assets/images/3.png" alt="">
+			<p>It may take sometime</p>
+			<img src="assets/images/4.png" alt="">
+		</li>
+
+		<li>
+			 STEP-04:<br>
+			a) Select time zone of your country.<br>
+			b) Next step.
+			<img src="assets/images/5.png" alt="">
+			
+		</li>
+		<li>
+			 STEP-05:<br>
+			a) Your store name <br>
+			b) Your store contact number <br>
+			c) Give your username <br>
+			d) Give your password. <br>
+			e) Provide your shop address (this will be displayed on invoice).<br>
+			f) Next step.
+			<img src="assets/images/6.png" alt="">
+		</li>
+		<li> STEP-06: Your shop management software is ready. Here you will get three(3) user information with login credential. To login click on Login Now button.
+			<img src="assets/images/7.png" alt=""></li> 
+	</ul>
+	<p style="background-color:yellow;padding: 15px"><strong>Important:</strong>if you want to install this application inside custom directory/folder then go to config.php file at line number 61 and change the value of SUBDIRECTORY constant with your custom directory/folder name.</p>
+</section>
+<!-- installation part end -->
+
+
+<!--Dashboard part start-->
+<section id="dashboard">
+	<p>This is the informative Dashboard, From here you will be able to do many work very easily</p>
+	<h1>Dashboard</h1>
+	<img class="img-responsive" src="assets/images/Home-dashboard.png">
+</section>
+<!--Dashboard part end-->
+
+
+<!-- POS part start -->
+<section id="point">
+	<h1>Point of sell</h1> 
+	<h3>Product sell to the customer</h3><hr class="notop">
+	<ul>
+		<li> Dashboard > go to Point of sell from vertical menu or top bar menu.</li>
+		<li> After visit point of sell windows select customer first</li>
+		<li> Then click on the product from the product list window(click many times, if you want to add more product) </li>
+		<li> You can use the barcode scanner (Barcode type [CODE-128, CODE-93 & CODE-39] is tested by a barcode scanner). After complete a scan one (1) product will be added.</li>
+		<li> You may scan multiple time for add more number of same product</li>
+		<li> You can give different amount of discount for the different user.</li>
+		<li> You can give TAX manually.</li>
+		<li> After select product and discount and tax click Pay now button</li>
+		<li> Then you will be able to see invoice preview. Then fill the received amount and Press <kbd>Enter</kbd>.</li>
+		<li> Or  Click on a payment method that you will use to get the bill from the customer.</li>
+		<li> Product successfully sell </li>
+		<li> An Invoice will be generated and you will be able to print easily.</li>
+		<li> You will be able to use POS printer</li>
+
+		<ul>
+			<li>Left Panel</li>
+		</ul>
+		<p><img src="assets/images/pos-left.png"></p>
+		<ul>
+			<li>Right Panel</li>
+		</ul>
+		<p><img src="assets/images/pos-right.png"></p>
+	</ul>
+</section>
+<!-- POS part end -->
+
+<!-- invoice part start -->
+<section id="invoice">
+	<h1>Sell</h1> 
+	<h3>Sell List (Invoice List)</h3><hr class="notop">
+	<p>In this section, you will be able to see all invoice in your current store. Moreover, if you want to see another day invoice you can see that very easily by filtering the invoice list. For filtering date click on the search icon in the top menu bar</p>
+	<ul>
+		<li> Here you will be able to see the invoice list in your current store.</li>
+		<li> You will be able to see invoice details from here</li>
+		<li> You will be able to return product from sell invoice</li>
+		<li> You will be able to delete invoice from here</li>
+		<li> You can print invoice via POS printer.</li> 
+	</ul>
+
+	<h3>Return List</h3><hr class="notop">
+	<ul>
+		<li> Here you will get return invoice list.</li>
+		<li> Return product name with return quantity.</li>
+	</ul>
+
+	<h3>Sell Log</h3><hr class="notop">
+	<ul>
+		<li> Here you will get all log of sell invoice.</li>
+		<li> Return product name with return quantity.</li>
+	</ul>
+
+</section>
+<!-- sell part end -->
+
+<!-- gift card part start -->
+<section id="giftcard">
+	<h1>Gift Card</h1><hr class="notop">
+
+	<p>You will be able to issue Gift Card to your customer, customer can use that Gift Card for payment. You can also topup customer gift Card.</p>
+	<h3>Advantage of Gift Card</h3>
+	<ul>
+		<li> Customer can use this gift Card like a cash card.</li>
+		<li> Customer can top up his card from your shop</li>
+		<li> Seller can maintain easily.</li>
+	</ul>
+	<h3>Add New Gift Card</h3>
+		<ul>
+			<li> Dashboard > Gift Card > Gift Card List > Click on Add New Gift Card</li>
+			<li> Card Number will generate automatically also you can change the card number by click edit icon.</li>
+			<li> Give the value of card(This indicate how much you charge to customer for this card)</li>
+			<li> Provide how much amount you want to topup of this card.</li>
+		</ul>
+	<h3>Gift Card List</h3>
+	<ul>
+		<li> Dashboard > Gift Card > Gift Card List > Here the all Gift Card list that you issued</li>
+		<li> For view or print Gift Card click on view button from the list</li>
+		<li> For topup money to Gift Card click on topup button and give the amount and expiry date</li>
+		<li> You may also edit and delete any Gift Card from list.</li>
+	</ul>
+</section>
+<!-- gift card part end -->
+
+
+<!-- Quotation start -->
+<section id="quotation">
+	<h1>Quotation</h1> 
+	<p>In this section, you will be able to create a quotation invoice for give a proposal to any customer or any institute</p>
+	<h3>Add Quotation</h3><hr class="notop">
+	
+	<ul>
+		<li> Go to Dashboard > Quotation > Add Quotation</li>
+		<li> Here you will get from. fill the form with all required field</li>
+		<li> Select the customer and select the supplier list to get that supplier product easily.</li>
+		<li> Type your product name in Add product section. You can add multiple product</li>
+		<li> Click on submit. A quotation invoice will create.</li> 
+		
+	</ul>
+	<h3>Quotation List</h3><hr class="notop">
+	<ul>
+		<li> By click action button you can edit the quotation invoice.</li> 
+		<li> From quotation invoice list you can view the quotatiton invoice and can print that invoice.</li> 
+		<li> In the next time you will be able to convert this quotation invoice to sell invoice from action button.</li>  
+	</ul>
+</section>
+<!-- Quotation part end -->
+
+<!-- installment area start -->
+<section id="intstallment">
+	<h1>Installment(EMI)</h1> 
+	<p>From here you can manage your installment invoice. You can sell a installment payment from POS screen by click sell with installment button.</p>
+
+	<h3>Create a Invoice as Installment payment</h3><hr class="notop">
+	<ul>
+		<li> Goto Dashboard > Point Of Sale > Select the product > Click on Pay Now button.</li>
+		<li> You will get a sell with installment button below the FULL PAID or FULL DUE button. </li>
+		<li> After click you will a form about the installment period.</li>
+		<li> Duration : This indicate how many days you will give to your customer to paid this amount</li>
+		<li>Interval: What the interval between first payment to second or third to form.</li> 
+		<li>Total Installment: It will calculate automatically.</li> 
+		<li>Interest Amount: If you have any interest amount so give the percentage value.You may use zero(0).</li> 
+	</ul>
+		
+	<h3>Receive Installment Due</h3><hr class="notop">
+	<ul>
+		<li> You can receive installment due from installment list</li>
+		<li> Go to Dashboard > Installment > Installment List > Here you will get all list of installment sell. </li>
+		<li> Click on view button from a invoice. Here you will get installment list</li>
+		<li> Click on Payment button and give the receive amount.</li>
+	</ul>
+
+	<h3>Installment List</h3><hr class="notop">
+	<ul>
+		<li> You will get all installment invoice in this section. </li>
+		<li> Go to Dashboard> Installment > Installment List > Here you will get all list of installment sell. </li>
+		<li> Click on view button from a invoice. Here you will get that installment details</li>
+		<li> Here you will get due amount and remaining installment and their payment date.</li>
+		<li> When installment invoice paid then status will be paid in installment invoice list .</li> 
+	</ul>
+
+	<h3>Installment Payment</h3><hr class="notop">
+	<ul>
+		<li> You will get all installment payment in this section. </li>
+		<li> Go to Dashboard> Installment > Payment List > Here you will get all payment of installment sell. </li> 
+	</ul>
+
+
+	<h3>Other Payment Function</h3><hr class="notop">
+	<ul>
+		<li> Payment Due Today : Here you will get list that you received from installment due.</li>
+		<li> Payment Due All : Here you will get all installment due invoice.</li>
+		<li> Payment Due Expired : Here you will get all installment due invoice they missed their payment date.</li>
+	</ul>	
+
+	<h3>Overview Report</h3><hr class="notop">
+	<ul>
+		<li> You will get overview calculation of installment i.e. Total invoice , interest amount, amount received & due amount</li>
+	</ul>
+</section>
+<!-- installment area End -->
+
+<!-- purchase part start -->
+<section id="purchase">
+	<h1>Purchase</h1><hr class="notop">
+
+	<p>In this section you will be to able to see lot of information about purchase product(that you were bought from supplier).</p>
+
+	<h3>Purchase List</h3>
+	<ul>
+		<li> Dashboard > Purchase > Purchase List > Here you will get all list of your purchase from supplier.</li>
+		<li> To return product to supplier click on return button from that invoice from list</li>
+		<li> You will be able to due paid to your supplier from pay button.</li>
+		<li> To get another day invoice you need to click on search icon from Topbar.</li>
+	</ul>
+
+	<h3>Due Invoices</h3>
+	<ul>
+		<li> Dashboard > Purchase > Due Invoices > Here you will get all list of your purchase from supplier that has due.</li>
+		<li> You can also paid from this list by click pay button.</li>
+	</ul>
+
+	<h3>Add Purchases</h3>
+	<ul>
+		<li> Dashboard > Purchase > Add Purchases > Here you will be able to buy product from any supplier</li>
+		<li> Need to select supplier first and provide the invoice Id.</li>
+		<li> Search the product and select from the list and give the buy quantity of product </li>
+		<li> Then provide product buy price and sell price</li>
+		<li> Give the paid amount (You may take due from supplier)</li>
+		<li> Click on Buy Now button</li>
+	</ul>
+
+	<h3>Transaction List</h3>
+	<ul>
+		<li> Dashboard > Purchase > Transaction List > Here you will be able to all transaction with your all supplier</li>
+		<li> To get another day transaction list you need to filter from Top bar by click on search icon</li>
+	</ul>
+
+</section>
+<!-- parchase part end -->
+
+<!-- product transder part start -->
+<section id="stock-transfer">
+	<h1>Stock Transfer</h1> 
+	<p>In this section, you will be able to transfer product form one store to another store.</p>
+	<h3>Add Transfer</h3><hr class="notop">
+	
+	<ul>
+		<li> Go to Dashboard > Stock Transfer > Add Transfer</li>
+		<li> Here you will get from. fill the form with all required field</li>
+		<li> Select the sender store and receiver store</li>
+		<li> In stock list section you will get all product list of sender store.</li>
+		<li> Click on product from that list for transfer product</li> 
+		<li> After click that product will add in Transfer list section.</li> 
+		<li> Click on Transfer Now button for Transfer product</li> 
+		<li> A successfull messeage will appear if operarion is success.</li> 
+	</ul>
+	<h3>Transfer List</h3><hr class="notop">
+	<ul>
+		<li> Go to Dashboard > Stock Transfer > Transfer List</li>
+		<li> Here you will be able to see all transfer from your store</li>
+		<li> Here you can change the transfer status of any transfer from your store</li>
+		<li> When transfer status will be completed tha time transfer product amount will be added in receiver store.</li>
+	</ul>
+</section>
+<!-- product transfer part end -->
+
+
+<!--product part start-->
+<section id="product">
+	<h1>Product</h1><hr class="notop">
+	<p>Every shop may arrange with a bunch of product which contains the product. The software permits to create the products as well as you can edit, delete your creating Product.</p>
+
+	<h3>Create New Product</h3>
+
+	<p>To create a product you have to create a box(product location) and supplier(who will supply product to you) first.<a href="#setting">How to create a box?</a><a href="#supplier">How to create a supplier?</a></p>
+	<ul>
+		<li> Dashboard > Product > fill up the form under "Add New Product" with valid information</li>
+		<li> If you have more store(multi-store) you can add this product to all store by click store in the store list from here.</li>
+		<li> After successfully creating a new product will be shown under "View All Product Name" section. Here product available amount is Zero (0). Product available amount will increase when you will buy the product from a supplier. </li>
+		<li> Buy price and sale price will be needed when you will buy a product from the supplier</li>
+	</ul>
+
+	<h3>Buy Product From Supplier</h3>
+	<ul>
+		<li> Dashboard > Product >  All product will be shown under "View All Product Name"</li>
+		<li> Click on the Buy  button(symbol of plus) of product item > a floating modal window will appear > fill-up this form by providing valid information</li>
+		<li> In search product area you will get product list under that supplier only in this modal window pop up.</li>
+		<li> Give the quantity, buy price and sale price in that product</li>
+		<li> After providing information click on Buy.</li>
+		<li> You will get report how much amount you bought from a supplier in buy report area.</li>
+
+	</ul>
+
+	<h3>Return Product To The Supplier</h3>
+	<ul>
+		<li> Dashboard > Product >  All product will be shown under "View All Product Name"</li>
+		<li> Click on the Return(symbol with minus)  button of product item > a floating modal window will appear > provide invoice ID and Quantity(that amount you want to return)</li>
+		<li> After providing information click on Return</li>
+	</ul>
+
+	<h3>Update and Delete a Product</h3>
+	<ul>
+		<li> Dashboard > Product > All product will be shown under "View All Product Name"</li>
+		<li> Click on the edit button of a product item > a floating modal window will pop up > change information> update</li>
+		<li> Click on the delete button of a product item > a floating modal window will pop up > select the method >delete</li>
+	</ul>
+
+	
+	<h3>Generate Barcode</h3>
+	<ul>
+		<li> Dashboard >  Product > All product will be shown under "View All Product"</li>
+		<li> Click on barcode icon button under barcode label of a product item > a floating alert window will pop up> select the quantity and choose barcode type (barcode type CODE 128, CODE-39 & CODE-93 tested by barcode scanner)</li>
+		<li> Click on Print</li>
+		<li> You can use the barcode scanner to select Product in POS screen</li>
+	</ul>
+
+	<h3>Product Import</h3><hr class="notop">
+	<ul>
+		<li> If you need to add a lot of products to your shop you may use this method.</li>
+		<li> You need to download .xls file and need to fill-up.</li>
+		<li> In that .xls file, you will get a demo product(that is used for instruction only) <a href="#product_import">How to?</a></li>
+		<li> After fill-up that .xls file you need to upload here</li>
+		<li> After upload > Click Import</li>
+	</ul>
+
+	<h3>Stock Alert</h3><hr class="notop">
+	<ul>
+		<li> Dashboard > Product > Stock alert </li>
+		<li> Which product stock amount is low, you will see that product list here.</li>
+		<li> You will be able to increase the product quantity by click product buy(symbol of plus) from the stock alert list.</li>
+	</ul>
+
+
+	<h3>Expired Product</h3><hr class="notop">
+	<ul>
+		<li> Dashboard > Product > Expired </li>
+		<li> In this section, you can see expired product list</li>
+	</ul>
+</section>
+<!--product part End-->
+
+
+
+<!--customer part start-->
+<section id="customer">
+	<h1>Customer</h1><hr class="notop">
+	<p>Here you can manage your customer very easily. You will be able to see customer history with all invoice.</p>
+
+	<h3>Create New Customer</h3>
+	<ul>
+		<li> Dashboard  > Customer > fill up the form under "Add New Customer" with valid information > save</li>
+		<li> After successfully creating a new customer will be shown under the "Customer List" section.</li>
+	</ul>
+
+	<h3>View Customer History</h3>
+	<ul>
+		<li> Dashboard > Customer > Click eye icon under view button.</li>
+		<li> You will be able to see all previous invoice with all information.</li>
+		<li> Otherwise, you will get Due information, lifetime invoice number and lifetime buy amount </li>
+	</ul>
+
+	<h3>Edit and Delete Customer</h3>
+	<ul>
+		<li> Dashboard > Customer > All customer will be shown under "View All Customer Name"</li>
+		<li> Click on the edit button of a customer item > a floating modal window will pop up > change information > Update.</li>
+		<li> Click on the Delete button of a customer item > a floating modal window will pop up > Choose a method > Delete</li>
+	</ul>
+</section>
+<!--customer part End-->
+<!--supplier part start-->
+<section id="supplier">
+	<h1>Supplier</h1><hr class="notop">
+
+	<p>Every shop may arrange with a bunch of Suppliers which contain the product. The software permits to create the Supplier as well as you can edit, delete your creating supplier.</p>
+
+	<h3>Create New Supplier</h3>
+	<ul>
+		<li> Dashboard > Supplier > fill up the form under "Add New Supplier" with valid information > save</li>
+		<li> After successfully creating a new supplier will be shown under the "Supplier list" section</li>
+		<li> From supplier list you will be able to buy product by click buy button.</li>
+	</ul>
+
+	<h3>History of Supplier</h3>
+	<ul>
+		<li> Dashboard > Supplier > All supplier will be shown under " Supplier List"</li>
+		<li> Click on the view button of a supplier. </li>
+		<li> You can see all invoice and more info that you bought from that buyer</li>
+		<li> You will get a lifetime history of the supplier.</li>
+	</ul>
+
+	<h3>Edit and Delete a Supplier</h3>
+	<ul>
+		<li> Dashboard > Supplier > All supplier will be shown under the "Supplier List"</li>
+		<li> Click on the edit button of a supplier item > a floating modal window will pop up > change information and Click on the Update button</li>
+		<li> Click on the Delete button of a supplier item > a floating modal window will pop up > select a method > delete</li>
+	</ul>
+</section>
+<!--supplier part end-->
+
+<!-- Accounting  part start-->
+<section id="accounting">
+	<h1>Accounting</h1><hr class="notop">
+	<p>Here you will be able to maintain your Banking accouting system. You can manintain multiple bank account from here </p>
+	<h3>Deposit</h3>
+
+	<ul>
+		<li>Dashboard > Accounting > Deposit</li>	
+		<li>Fill-up the informaion</li>	
+		<li>Click on Deposit</li>	
+	</ul>
+	<h3>Withdraw</h3>
+
+	<ul>
+		<li>Dashboard > Accounting > Withdraw</li>	
+		<li>Fill-up the informaion</li>	
+		<li>Click on Widthdraw</li>	
+	</ul>
+	<h3>Transfer Fund</h3>
+	<p>You can transfer to your another bank account.</p>
+	<ul>
+		<li>Dashboard > Accounting > Transfer Funds</li>	
+		<li>Select the sender account and receiver account and Fill the all information</li>	
+		<li>Click on Transfer Now</li>	
+	</ul>
+	<h3>Transfer List</h3>
+	<p>You can see transfer list to your another bank account.</p>
+	<ul>
+		<li>Dashboard > Accounting > Transfer List</li>	
+		<li> Here you will get all transfer list with details information</li>	
+	</ul>
+
+	<h3>Transaction List</h3>
+	<ul>
+		<li>Dashboard > Accounting > Transaction List </li>
+		<li>Here You will get all bank account transaction in this transaction list.</li>
+	</ul>
+	
+
+	<h3>Bank Account List</h3>
+	<ul>
+		<li>Dashboard > Accounting > Bank Account List </li>	
+		<li>Here You will get all list of your bank account</li>	
+		<li>For add new bank account click on Add New Bank Account and Fill-up the all information</li>	
+	</ul>	
+	<h3>Income Source</h3>
+	<ul>
+		<li> Dashboard > Accounting > Income source </li>	
+		<li> Here You can add income source</li>	
+		<li> For add New Income Source click on "Add New Income source" and Fill-up the all information</li>	
+	</ul>	
+	<h3>Income Monthwise</h3>
+	<ul>
+		<li> Dashboard > Accounting > Income Monthwise </li>	
+		<li> Here You can see how much amount you were earned from different income source</li>	
+	</ul>	
+	<h3>Income & Expense</h3>
+	<ul>
+		<li> Dashboard > Accounting > Income & Expense </li>	
+		<li> Here You will get a report about Income and Expense</li>	
+	</ul>	
+	<h3>Profit & Loss</h3>
+	<ul>
+		<li> Dashboard > Accounting > Profit & Loss </li>	
+		<li> Here You will get a report about Profit & Loss, You will be able to filter this report </li>	
+	</ul>	
+	<h3>Cashbook</h3>
+	<ul>
+		<li> Dashboard > Accounting > Cashbook </li>	
+		<li> You need to entry opening balance of your present day. </li>	
+	</ul>	
+	<h3>Transaction List</h3>
+	<ul>
+		<li> Dashboard > Accounting > Transaction List </li>	
+		<li> Here you will get details of all transaction like . sell transaction , buy transaction , bank deposit transaction and bank withdraw transaction. </li>	
+	</ul>
+
+	<h3>Balance Sheet</h3>
+	<ul>
+		<li>Dashboard > Accounting > Balance Sheet </li>	
+		<li>Here you will get overall report of your bank accounts</li>	
+	</ul>
+	
+</section>
+<!-- Accounting part end -->
+
+<!-- Expense part start -->
+<section id="expense">
+	<h1>Expense</h1><hr class="notop">
+	<p>Here you will get information about expense about your shop like Shop rent, Electricity bill, and Tea bill etc.</p>
+	<h3>Add a Expense</h3>
+	<ul>
+		<li> Dashboard > Expense > Add Expense</li>
+		<li> Fill out the form by providing valid information.</li>	
+		<li> Save</li>	
+	</ul>
+	<h3>Expense List</h3>
+	<ul>
+		<li> Dashboard > Expense > Expense list</li>
+		<li> Here you will get all expense list based on your filtering.</li>	
+		<li> Expense report will be displayed in the final report.</li>	
+	</ul>
+	<h3>Category</h3>
+	<ul>
+		<li> Dashboard > Expense > Category</li>
+		<li> Here you can create expense category. </li>	
+		<li> Expense category will be displayed in the Add New Expense section.</li>	
+	</ul>
+	<h3>Summary</h3>
+	<ul>
+		<li> Dashboard > Expense > Summary</li>
+		<li> Here you will get expense summany. </li>	
+		<li> Expense will show as category with day, week ,month and year wise</li>	
+	</ul>
+</section>
+<!-- Expense part end -->
+<!-- loan part start -->
+<section id="loan">
+	<h1>Loan</h1><hr class="notop">
+	<p>Here you can manage loan that you will get from any bank or any other institute to extend your business.</p>
+	<h3>Take a Loan</h3>
+	<ul>
+		<li> Dashboard > Loan Manager > Take Loan</li>
+		<li> Fill out the form by providing valid information.</li>	
+		<li> Click on SAVE for take loan</li>	
+	</ul>
+	<h3>Loan List</h3>
+	<ul>
+		<li> Dashboard > Loan Manager > Loan list</li>
+		<li> Here you will get all expense list based on your filtering.</li>	
+		<li> From list you will be able paid loan amount</li>	
+		<li> By click view button you will get loan paid history</li>	
+	</ul>
+	<h3>Loan Summary</h3>
+	<ul>
+		<li> Dashboard > Loan Manager > Loan summary</li>
+		<li> Here you will get summary report about your loan</li>	
+	</ul>
+</section>
+<!-- loan part end -->
+
+<!--Report part start-->
+<section id="report">
+	<h1>Report</h1>
+<p>You will get a lot of reports from here like Overview Report, Sell report, Buy report, Due report, Payment report, Stock report(this will help you to get a day month or year overview)</p>
+
+	<h3>Overview Report</h3>
+	<ul>
+		<li> Dashboard > Reports > Overview report </li>
+		<li> You will get an Overview report information with Profit, sell amount, Tax collection amount, discount amount and many things in a day, month or year(Depends on your filtering) </li>
+	</ul>
+	
+	<h3>Collection Report</h3>
+	<ul>
+		<li> Dashboard > Reports > Collection report </li>
+		<li> Here you will get Staff wise collection amount from the customer</li>
+		<li> You may filter any date. (filter icon present in the top menu bar with search icon)</li>
+	</ul>
+	<h3>Due Collection Report</h3>
+	<ul>
+		<li> Dashboard > Reports >Due Collection report </li>
+		<li> Here you will get due collection report</li>
+		<li> You may filter any date. (filter icon present in the top menu bar with search icon)</li>
+	</ul>
+	<h3>Supplier Due Paid Report</h3>
+	<ul>
+		<li> Dashboard > Reports >Supplier Due paid </li>
+		<li> Here you will get supplier due payment report(that you paid)</li>
+		<li> You may filter any date. (filter icon present in the top menu bar with search icon)</li>
+	</ul>
+	<h3>Sell Report</h3>
+	<ul>
+		<li> Dashboard > Reports > Sell Report </li>
+		<li> You will get a product list with the number of sales in a day, month or year(Depends on your filtering) </li>
+	</ul>
+
+
+	<h3>Purchase Report</h3>
+	<ul>
+		<li> Dashboard > Reports > Purchase Report</li>
+		<li> You will get daily, monthly, yearly(Depends on your filtering) wise Purchase report(that you will buy from the supplier)</li>
+	</ul>
+	<h3>Sell Payment Report</h3>
+	<ul>
+		<li> Dashboard > Reports > Sell Payment Report</li>
+		<li> Here you will get sell payment report(that you received from customer)</li>
+		<li> You may filter any date. (filter icon present in the top menu bar with search icon)</li>
+	</ul>
+	<h3>Purchase Payment Report</h3>
+	<ul>
+		<li> Dashboard > Reports > Purchase Payment Report</li>
+		<li> Here you will get purchase payment report (that you paid to supplier)</li>
+		<li> You may filter any date. (filter icon present in the top menu bar with search icon)</li>
+	</ul>
+	<h3>Sell Tax Report</h3>
+	<ul>
+		<li> Dashboard > Reports > Sell Tax Report</li>
+		<li> Here you will get sell tax report (that you are collect form customer)</li>
+		<li> You may filter any date. (filter icon present in the top menu bar with search icon)</li>
+	</ul>
+
+	<h3>Purchase Tax Report</h3>
+	<ul>
+		<li> Dashboard > Reports > Purchase Tax Report</li>
+		<li> Here you will get purchase tax report (You were paid to your supplier)</li>
+		<li> You may filter any date. (filter icon present in the top menu bar with search icon)</li>
+	</ul>
+	
+	<h3>Tax Overview Report</h3>
+	<ul>
+		<li> Dashboard > Reports > Tax Overview Report</li>
+		<li> Here you will get purchase tax report (You were paid to your supplier)</li>
+		<li> You may filter any date. (filter icon present in the top menu bar with search icon)</li>
+	</ul>
+
+	<h3>Stock Report</h3>
+	<ul>
+		<li> Dashboard > Reports > Stock Report</li>
+		<li> You will get the Stock report(that product reserved in your shop)</li>
+		<li> You will get product quantity with the supplier</li>
+		<li> You can calculate the total number of product in your shop</li>
+	</ul>
+</section>
+<!--Report end-->
+
+<!--Analysis part start-->
+<section id="analysis">
+	<h1>Analytics</h1><hr class="notop">
+	<p>You can see an overview analysis of your shop</p>
+
+	<ul>
+		<li> Dashboard > Analysis</li>
+		<li> Here you will get Today's profit, weekly, Monthly, and yearly top product, and Best customer and many things.</li>
+		<li> You will get a graph about your income & expese  in current month</li>	
+		<li> You can get a lot of info by seeing this graph</li>		
+	</ul>
+	<p><img src="assets/images/analysis.png"></p>
+</section>
+<!--Analysis  part End-->
+
+<!--SMS  part Start-->
+<section id="sms">
+	<h1>SMS</h1><hr class="notop">
+	<p>You can send SMS to your customer after create a invoice (Automatically or manually) also you will be able to send SMS to another person</p>
+	<h3>Send SMS</h3>
+	<ul>
+		<li> Dashboard > Send SMS</li>
+		<li> Here you will get two type SMS facilty Single SMS & Group SMS</li>
+		<li> For single SMS : give Mobile number & text and click on SEND button.</li>	
+		<li> For Group SMS : Select people category , Campaign name i.e. New Year Greetings, and Schedule date and time (It indicate SMS will send that time),  You will get a list in people section according go people category, Write your messege in Message area (don't clear the Hellow,[name] area) </li>	
+		<li>Click on SEND button</li>	
+	</ul>
+	<h3>SMS Report</h3>
+
+	<ul>
+		<li>Here you will SMS report in details</li>
+	</ul>
+	<h3>SMS Settings</h3>
+
+	<ul>
+		<li>According to SMS service provider fill-up the required filed, We are support these SMS gateway: Clickatell, twilio , msg91, OnnoRokomSMS. </li>
+		<li>Click on Update </li>
+	</ul>
+</section>
+<!-- SMS  part End-->
+
+<!--user part start-->
+<section id="user">
+	<h1>User</h1><hr class="notop">
+	<p>You can create some user for maintaining your shop.here you will get many groups of user like some user group user can show customer list only and some user can sell your product to the customer only. It depends on your permission.</p>
+
+	<h3>Create New User</h3>
+	<ul>
+		<li> Dashboard > USER > user > fill up the form under "User list" with valid information > save</li>
+		<li> A user will log in by using their e-mail address.</li>
+		<li> After successfully creating new user will be shown under "User list" section</li>
+	</ul>
+
+	<h3>Edit and Delete User</h3>
+	<ul>
+		<li> Dashboard > USER > User > All user will be shown under "User list"</li>
+		<li> Click on the edit button of a user > A floating modal window will pop up > change information > Update.</li>
+		<li> Click on the delete button of a user > a floating modal window will pop up > Choose a method > Delete</li>
+	</ul>
+
+	<h3>Password Change of User </h3>
+	<ul>
+		<li> Dashboard > USER > Password > click here for change password</li>
+		<li> Select the user and give the new password</li>
+		<li> Update</li>
+	</ul>
+<hr>
+	
+	<h3>Create New Usergroup</h3>
+	<ul>
+		<li> Dashboard > USER > Usergroup > fill up the form under "Add New usergroup" with valid information > save</li>
+		<li> After successfully creating new user will be shown under "Usergroup list" section</li>
+	</ul>
+
+	<h3>Edit and Delete Usergroup</h3>
+	<ul>
+		<li> Dashboard > USER > Usergroup > all user will be shown under "Usergroup list"</li>
+		<li> Click on the edit button of a user > a floating modal window will pop up > change information > Update</li>
+		<li> Click on the delete button of a user > a floating modal window will pop up > Choose method > Delete</li>
+	</ul>
+	<h3>Give Permission</h3>
+	<ul>
+		<li> Dashboard > USER > Usergroup > All user will be shown under "Usergroup list"</li>
+		<li> Click on user group edit permission > a floating modal window will pop up > check the permission from permission list that you want to provide that group of user.</li>
+		<li> Click Update button</li>
+	</ul>
+</section>
+<!--user management end-->
+
+<!-- Filemanager start -->
+<section id="filemanager">
+	<h1>Filemanager</h1>
+	<p>All file will be present here, you will be able to manage all media files.</p>
+</section>
+<!-- Filemanager end -->
+
+<!-- setting part start -->
+<section id="setting">
+	<h1>Setting</h1><hr class="notop">
+	<p>Here you will be able to add payment method currency and user preference and many things.</p>
+	
+	<p>If you have more shop and if you are interested to manage more shop by using this software, it's completely possible and very easy</p>
+	<h3>Create new store</h3>
+	<ul>
+		<li> Dashboard > Settings > Store > Add Store</li>
+		<li> Fill the form by provide valid information</li>	
+		<li> Save</li>	
+	</ul>
+	<h3>Select a Store</h3>
+	<ul>
+		<li> Dashboard > Settings > Store > Store List</li>
+		<li> Here you will get all store list</li>	
+		<li> From that list click on active that you want to visit</li>	
+		<li> After successfully activate you will be able to see all the information in your activated shop</li>	
+	</ul>
+
+	<h3>Receipt Template</h3>
+	<p>Here you can redesign your invoice by edit code like any text and text color.</p>
+	<ul>
+		<li> Dashboard > Settings > Receipt Template </li>
+		<li> Selected template design will be generate when invoice will be create. </li>
+		<li> Click on template name and after click on template you will able to see two section of code,You can edit this for customize your invoice design.</li>
+		<li>In the bottom section you will get many template tag, You can use this key for sow that property in your invoice.</li>	
+		<li> Save</li>	
+	</ul>
+	<h3>User Preference</h3>
+	<ul>
+		<li> Dashboard > Setting > User preference</li>
+		<li> Select language, color theme, POS panel position, and POS window pattern</li>
+		<li> Update</li>	
+	</ul>
+	<h3>Brand</h3>
+	<ul>
+		<li> Dashboard > Setting > Brand</li>
+		<li> From here you can add brands name when you will crate a product.</li>
+		<li> From brand list you can update or delete any brand.</li>	
+	</ul>
+	<h3>Create New Currency</h3>
+	<ul>
+		<li> Dashboard > Setting > Currency > Add New Currency</li>
+		<li> Fill out the form by providing valid information. </li>	
+		<li> Save</li>	
+		<li> After successfully creating new currency will be shown under "currency list" section.</li>
+	</ul>
+
+	<h3>Activate Currency</h3>
+	<ul>
+		<li> Dashboard > Settings  > Currency > All currency will be shown under "Currency list"</li>
+		<li> Click on the activate button and confirm</li>
+	</ul>
+
+	<h3>Edit and Delete Currency</h3>
+	<ul>
+		<li> Dashboard > Settings  > Currency > All currency will be shown under "Currency list" section</li>
+		<li> Click on the edit button of a currency > a floating modal window will pop up > change information of currency > Update</li>
+		<li> Click on the delete button of a currency > a floating modal window will pop up > Choose method > delete</li>
+	</ul>
+
+		<h3>Add New Payment Method</h3>
+		<ul>
+			<li> Dashboard > Settings > Payment method > fill up the form under "Add new payment method" with valid information</li>
+			<li> Save</li>
+		</ul>
+		
+		<h3>Edit and Delete Payment Method</h3>
+		<ul>
+			<li> Dashboard > Settings > Payment method> all payment method will be shown under "Payment method list" section</li>
+			<li> Click on the edit button of a payment method  > a floating alert window will pop up > Click on Update</li>
+			<li> Click on the Delete button of a payment method  > a floating alert window will pop up >choose method > Click on Delete</li>
+		</ul>
+
+		<h3>Unit</h3>
+		<p>Unit means product unit i.e. Kg,piece. You can add unit when you will create a product or update. product unit will be show in invoice. </p>
+		<ul>
+			<li> Dashboard >Setting > Unit</li>
+			<li> Give the unit name.</li>
+			<li> Save</li>
+		</ul>
+
+		<h3>Tax Rate</h3>
+		<p>This Tax Rate is based on product. so you can select a Tax Rate when you will crate a product or update a product.</p>
+		<ul>
+			<li> Dashboard >Setting >Tax Rate</li>
+			<li> Fill the required information</li>
+			<li> Save</li>
+		</ul>
+		<h3>Create Box</h3>
+		<p>The box is important for every product, Box indicates the position of a product. You may call it box or Shelf (Where a product is located in your shop)</p>
+		<ul>
+			<li> Dashboard >Box > Add New Box</li>
+			<li> Give the box name(Location, Shelf shortcode or section name) and details.</li>
+			<li> Save</li>
+		</ul>
+
+		<h3>Printer Add</h3>
+		<p>If you want to use POS printer so this is for you. If you are not intested to use POS printer so just avoid this section.</p>
+		<ul>
+			<li> Dashboard > Settings > Printer > Add New Printer</li>
+			<li> Give the all information</li>
+			<li> Name: Give the title of your printer(Just name)</li>
+			<li> Type: Select the network type</li>
+			<li> Character per line: give the number of charcater that will print in a line on invoice</li>
+			<li> IP Address: Provide the IP address of your printer like 192.168.223.501</li>
+			<li> IP Address: Port of your printer use. (Most printer uses 9100 port)</li>
+			<li> Click on Save</li>
+			<li> After adding a printer go to store settings and select POS printer and choose print will be automatically or not.</li>
+		</ul>
+
+		<h3>Backup Data</h3>
+		<ul>
+			<li> Dashboard > Settings > Backup/restore > Backup tab</li>
+			<li> Click on Export button</li>
+			<li> An SQL file will download in your computer</li>
+			<li> Store this SQL file very carefully</li>
+			<li> Your shop data successfully backup.</li>
+		</ul>
+		<h3>Restore Data</h3>
+		<ul>
+			<li> Dashboard > Settings > Backup/restore > Restore tab </li>
+			<li> Click on Import button</li>
+			<li> Select your previous backup file(.sql)</li>
+			<li> After select restore process will start. It may take several minutes.</li>
+			<li> After complete restore process, A confirmation message will appear.</li>
+		</ul>
+</section>
+<!-- setting part end -->
+<!-- question & ans part start -->
+<section id="other">
+	<h1>FAQ</h1><hr class="notop">
+	<h3>01. How to synchronize offline to online ?</h3>
+	<p>Pre-Requirements</p>
+	<ul>
+		<li>- ROOT/storage/logs/sql.txt [check that this file is exists and writable]</li>
+	</ul>
+	<p>Follow this steps</p>
+	<ul>
+		<li>1st : Copy offline script to online server</li>
+		<li>2nd : Copy/Import offilie database to online server</li>
+		<li>3rd : Change config.php as the following</li>
+		<li>4th : define('SYNCHRONIZATION', true); in config.php</li>
+		<li>5th : define('SYNCSERVERURL', 'http://remotemodernpos/sync.php'); [adjust as your server configuration] in config.php</li>
+		<li>6th : Make sure storage/logs/sql.txt file is exist and writable</li>
+		<li>7th : Crate a schedule task / cron job: <br>
+		C:/xampp/php/php.exe -f D:/www/modernpos/cron.php PUSHSQLTOREMOTESERVER <a href="#cron">How to?</a></li>
+	</ul>
+<p style="background-color:yellow;padding: 15px">***Note: 
+		C:/xampp/php/php.exe and D:/www/modernpos/cron.php [will be changed according to your server configuration]</p>
+
+
+
+	<h3 id="cron">02. How to create a cron job / Schedule task ?</h3>
+	<p>Follow this steps: </p>
+
+	<ul>
+		<li>Run > Task Schedular </li>
+		<li>Create Task</li>
+		<li>General</li>
+		<li>Name = MPOSSynchronization</li>
+		<li>Run Wheather user is logged on or not [checked]</li>
+		<li>Do not store password [checked]</li>
+		<li>Run with highest privileges [checked]</li>
+		<li>Hidden [checked], configure for [select as your need]</li>
+		<li>Triggers</li>
+		<li>New Daily Repeat task every 1 minutes</li>
+		<li>OK</li>
+		<li>Actions</li>
+		<li>New
+		Action = Start a program
+		Program/Script = C:/xampp/php/php.exe [change as your need]
+		Add agruments(optional) = -f D:/www/modernpos/cron.php PUSHSQLTOREMOTESERVER</li>
+		<li>click on OK</li>
+		<li>click on OK</li>
+
+		<li> Right click on The Task and click on RUN > Status will be changed to Running</li>
+	</ul>
+
+
+	<h3>03. How to backup database automatically ?</h3>
+	<p>Follow this steps</p>
+	<ul>
+		<li> First: Open the config file at root: config.php.</li>
+		<li> Adjust the value of DIR_BACKUP as your need, by default it is poinging to storage/backups directory...</li>
+		<li> define('DIR_BACKUP', DIR_STORAGE.'backups/');</li>
+		<li> Note: It's recommended to shift the storage directory to another location, i.e. if you have installed the system under D://www/modernpos then the storage directory can be located at D://www/storage</li>
+		<li> Second: Crate a schedule task / cron job, <a href="#cron">How to?</a></li>
+		<li> C:/xampp/php/php.exe -f D:/www/modernpos/cron.php DBBACKUP</li>
+		<li> Note: C:/xampp/php/php.exe and D:/www/modernpos/cron.php	[will be changed according to your server configuration]</li>
+	</ul>
+
+	<h3>04. How to restore database ?</h3>
+	<p>Follow this steps</p>
+	<ul>
+		<li>Dashboard > System > Backup/Restore</li>
+		<li>Click on restore tab</li>
+		<li>Select your database</li>
+		<li>Click on Restore.</li>
+	</ul>
+	
+	<h3>05. How to solve datatable warning ?</h3>
+	<p>Follow this steps</p>
+	<ul>
+		<li>Open the config file at root: config.php</li>
+		<li>Change the value of define(‘SUBDIRECTORY’, ’’);</li>
+		<li>Prodvide the subdirectory name: define(‘SUBDIRECTORY’, 'YourFolderName'); </li>
+		<li>define(‘SUBDIRECTORY’, 'YourFolderName'); </li>
+	</ul>
+
+	<h3>06. How to add a new language ?</h3>
+	<p>Follow this steps</p>
+	<ul>
+		<li>Dashboard > System > Language > Add New Language</li>
+		<li>Visit the page that you want translate.</li>
+		<li>After visit that page all language will add that new language section.</li>
+		<li>Now click on translate button beside of each language key</li>
+	</ul>
+
+
+	<h3>07. How to add a POS printer ?</h3>
+	<p>Follow this steps</p>
+	<ul>
+		<li> Dashboard > Settings > Printer > Add New Printer</li>
+		<li> Give the all information</li>
+		<li> Name: Give the title of your printer(Just name)</li>
+		<li> Type: Select the network type</li>
+		<li> Character per line: give the number of charcater that will print in a line on invoice</li>
+		<li> IP Address: Provide the IP address of your printer like 192.168.223.501</li>
+		<li> IP Address: Port of your printer use. (Most printer uses 9100 port)</li>
+		<li> Click on Save</li>
+		<li> After adding a printer go to store settings and select POS printer and choose print will be automatically or not.</li>
+	</ul>
+
+	<h3>08. How to customize invoice receipt template ?</h3>
+	<p>Each template has two parts (I)Content [contains HTML markup with template tags] (II) CSS [For style]. </p>
+	<ul>
+		<li>Dashboard > System > Receipt Template > Template list</li>
+		<li>Update HTML part & css as your wish.</li>
+	</ul>
+	
+
+	<h3>09. How to use Template tags & Where i will get template tag ?</h3>
+	
+	<ul>
+		<li>Dashboard > System > Receipt template > scroll down > Here you will get all template tags</li>
+		<li>You must wrapp template tag with double curly braches, i.e. {{ store_name }}</li>
+	</ul>
+
+	<h3>10. How to use loops ?</h3>
+	
+	<ul>
+		<li>Items Loop Tags. Usage:{{ items }} {{ sl }} {{ /items }} </li>
+		<li>Return items Loop Tags. Usage:{{ return_items }} {{ sl }} {{ /return_items }} </li>
+		<li>Payments Loop Tags. Usage:{{ payments }} {{ sl }} {{ /payments }} </li>
+		<li>Taxes Loop Tags. Usage:{{ taxes }} {{ sl }} {{ /taxes }} </li>
+	</ul>
+
+	<h3>11. Why image is not show in product ?</h3>
+	
+	<ul>
+		<li>Open the config file at root: config.php</li>
+		<li>adjust filemanager directory/folder and filemanger URl</li>
+	</ul>
+
+	<h3>12. How to reset data ?</h3>
+	
+	<ul>
+		<li> Dashboard > Sytem > Data Reset</li>
+		<li> Check store from store list.</li>
+		<li> Click on "Yes" for reset data of selected store</li>
+	</ul>
+	<h3>12. How to update v2.0 to v3.0 ?</h3>
+	<ul>
+		<li>Please follow this article <a href="update.html">Click Here</a></li>
+	</ul>
+	<div id="product_import">
+			<h3>12. How to import product ?</h3>
+			<p>The first line in downloaded .xls file should remain as it is. Please do not change the order of columns. Please make sure the (*.xls) file is UTF-8 encoded. The images should be uploaded in storage/products/ (or where you pointed) folder. The System will check that if a row exists then update, if not exist then insert.</p>
+			<h4 class="no-margin"> SL = Serial Number </h4>
+			<ul>
+				<li>The value of this column will be 1,2,3....10000	</li>
+			</ul>
+	
+			<h4 class="no-margin"> ProductName </h4>
+			<ul>
+				<li>The product name here...</li>
+			</ul>
+	
+			<h4 class="no-margin"> ProductType </h4>
+			<ul>
+				<li>Now two types of product are supported</li>
+				<li>standard</li>
+				<li>service</li>
+			</ul>
+	
+			<h4 class="no-margin"> Code  </h4>
+			<ul>
+				<li>Enter only numeric value</li>
+				<li>This code will be uses for barcode scanner</li>
+				<li>This code must be globally unique</li>
+			</ul>
+	
+			<h4 class="no-margin"> HSNCode </h4>
+			<ul>
+				<li>Only for Indian GST</li>
+			</ul>
+	
+			<h4 class="no-margin">BarcodeSymbology </h4>
+			<ul>
+				<li>code25 </li>
+				<li>code39</li>
+				<li>code128</li>
+				<li>EAN5</li>
+				<li>EAN13</li>
+				<li>upca</li>
+				<li>upce</li>
+			</ul>
+	
+			<h4 class="no-margin"> StoreCodeNames</h4>
+			<ul>
+				<li>Code names of any store to where you want to insert the product </li>
+				<li>The code will be found here
+					<ul>
+						<li> http://yourdomain/modernpos/admin/store_single.php </li>
+						<li> General tab</li>
+						<li> Code Name</li>
+						<li> Code name must be comma seperated like this- store1,store2,store3</li>
+					</ul>
+				</li>
+			</ul>
+			<h4 class="no-margin"> CategorySlug</h4>
+			<ul>
+				<li>Dashboard > Product > Category List > Click on 'Edit Button' > Category Slug</li>
+			</ul>
+			<h4 class="no-margin"> UnitCode</h4>
+			<ul>
+				<li>Dashboard > System > Unit > Click on 'Edit Button' > Code Name</li>
+			</ul>
+			<h4 class="no-margin"> TaxRateCode</h4>
+			<ul>
+				<li>Dashboard > System > Taxrate > Click on 'Edit Button' > Code Name</li>
+			</ul>
+			<h4 class="no-margin"> TaxMethod</h4>
+			<ul>
+				<li>The value will be one of the followings 1) inclusive or 2) exclusive</li>
+			</ul>
+			<h4 class="no-margin"> SupplierCode</h4>
+			<ul>
+				<li>Dashboard > Supplier > Supplier List > Click on 'Edit Button' > Code Name</li>
+			</ul>
+			<h4 class="no-margin"> BrandCode</h4>
+			<ul>
+				<li>Dashboard > System > Brand > > Brand List > Click on 'Edit Button' > Code Name</li>
+			</ul>
+			<h4 class="no-margin"> BoxCode</h4>
+			<ul>
+				<li>Dashboard > System > Box > Click on 'Edit Button' > Code Name</li>
+			</ul>
+			<h4 class="no-margin"> AlertQuantity</h4>
+			<ul>
+				<li>If the product quantity is equal or bellow the alert quantity then an alert will be shown</li>
+			</ul>
+			<h4 class="no-margin"> CostPrice</h4>
+			<ul>
+				<li>Cost price of the product</li>
+			</ul>
+			<h4 class="no-margin"> SellPrice</h4>
+			<ul>
+				<li>Sell price of the product</li>
+			</ul>
+			<h4 class="no-margin"> Description</h4>
+			<ul>
+				<li>Brief description of the product</li>
+			</ul>
+			<h4 class="no-margin"> Status</h4>
+			<ul>
+				<li>If the product will be published or not</li>
+			</ul>
+			<h4 class="no-margin"> Thumbnail</h4>
+			<ul>
+				<li>Image thumbnail of the product</li>
+			</ul>
+			<h4 class="no-margin"> Images</h4>
+			<ul>
+				<li>Multiple image links,  will be seperated by pipe (|) like this
+		/image1.jpg, /image2.png, /image2.gif</li>
+			</ul>
+
+			
+	<h4>Important Notes:</h4>
+<p>in config.php</p>
+<ul>
+	<li>When FILEMANAGERPATH will be pointed to storage then</li>
+	<li>/image1.jpg will search image under posroot/storage/image1.jpg foler</li>
+	<li>/products/image1.jpg will search image under posroot/storage/products/image1.jpg</li>
+</ul>
+		
+
+			
+			
+
+		
+		
+	
+	
+		
+		
+	</div>
+
+</section>
+<!-- question & ans part end -->
+
+<!-- Other start -->
+<section id="other">
+	<h1>Tested Feature</h1><hr class="notop">
+	<p>We Tested this feature</p>
+	<h3>POS Printer</h3>
+	<ul>
+		<li>supported this type POS printer</li>
+	</ul>
+
+	<h3>Barcode scanner</h3>
+	<ul>
+		<li>We have tested bacode scanner.</li>
+		<li>Supported barcode type: CODE 128, CODE-39 & CODE-93. </li>
+	</ul>
+
+	<h3>How to use Barcode scanner</h3>
+	<ul>
+		<li>First : Plugin barcode scanner to computer </li>
+		<li>Second : Go to POS page and scan the barcode from product label </li>
+		<li>** Be ensure need to scan that you were add when you were add this product </li>
+	</ul>
+
+	<h3>Indian GST</h3>
+
+	<ul>
+		<li>For use Indian GST go to store setting and change the invoice view setting from standard to Indian GST.</li>
+		<li>Indian GST support with all feature (IGST,CGST,SGST)</li>
+	</ul>
+</section>
+<!-- Other end -->
+
+<!-- cretit start -->
+	<section id="credits">
+		<h1>Credits</h1><hr class="notop">
+		<p>
+		We've used the following images, icons or other files as listed.</p>
+		<h3>JS File</h3>
+		<ul class="credit-list">
+			<li><span>Bootstrap -</span> Most popular HTML, CSS, and JS framework under MIT License</li>
+			<li><span>jQuery -</span> A fast, small, and feature-rich JavaScript library under MIT License</li>	
+			<li><span>Barcode reader -</span> under LGPLv3.</li>
+			<li><span>Moment.js - </span>Moment.js is freely distributable under the terms of the MIT license.</li>
+			<li><span>Bootstrap-timepicker -</span> 	Time picker widget based on bootstrap under Apache License V2</li>
+			<li><span>Bootstrap-Datepicker -</span> 	Date picker widget based on bootstrap under Apache License V2</li>
+			<li><span>Accounting.js - </span>	A tiny JavaScript library for number, money and currency formatting under MIT License</li>
+			<li><span>Angular JS-</span> Under MIT license</li>
+			<li><span>Angular Filemanager-</span> Under MIT license</li>
+			<li><span>select2 -</span> Under MIT license</li>
+			<li><span>Jquery UI-</span>	Under MIT license</li>
+			<li><span>sweet alert-</span> Under MIT license</li>
+			<li><span>AdminLTE - </span>Under MIT license</li>
+			<li><span>toastr -</span>	Under MIT license</li>
+			<li><span>morrish -</span>	Under MIT license</li>
+			<li><span>Underscore JS -</span>Under MIT license</li>
+			<li><span>Filemanager JS -</span> 	Under MIT license</li>
+			<li><span>perfect scroll bar -</span>  	Under MIT license</li>
+			<li><span>Datatables jQuery Plugin-</span>Under MIT license</li>
+			<li><span>jQuery chart js-</span> 	Under MIT license</li>
+			<li><span>Bootstrap-wisi html5-</span> 	Under MIT license</li>
+		</ul>
+		<h3>PHP</h3>
+		<ul>
+			<li><span>PHP spreadsheet reader -</span> Under MIT license</li>
+			<li><span>ESC/POS print driver for PHP-</span> Under MIT license</li>
+			<li><span>PHP hooks-</span></li>
+			<li><span>PHP mailer-</span> Under the LGPL 2.1 license.</li>
+			<li><span>PHP barcode generator-</span> Under the LGPL 3 license.</li>
+			<li><span>PHP QR Code-</span> Under the LGPL</li>
+		</ul>
+		<h3>Other</h3>
+		<ul>
+			<li><span>Flaticon</span></li>
+			<li><span>Font Awesome -</span>The iconic font and CSS toolkit under GPL License.</li>
+			<li><span>animate css-</span> Under MIT license</li>
+			<li><span><a href="https://pixels.com/">Pixels.com</a> </span></li>
+			<li><span><a href="https://www.bensound.com/royalty-free-music">Background Music:</a>For vedio preview</span></li>
+			<li><span><a href="https://freesound.org">Audio sounds</a></span></li>
+		</ul>
+		<hr>
+		<p>
+		Once again, Thank you so much for purchasing this php script. As we said at the beginning, we'd be glad to help you if you have any questions relating to this theme. No guarantees, but we'll do our best to assist. If you have a more general question relating to the items on Codecanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
+		<p>
+		<strong>ITsolution24.com</strong></p>
+	</section>
+	<!-- credit end -->
+	</div>
+	</div>
+	<script src="assets/js/script.js"></script>
+</body>
+</html>

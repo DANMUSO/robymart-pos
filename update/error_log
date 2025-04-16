@@ -1,0 +1,4 @@
+[23-Aug-2021 14:47:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function create_function() in /home/y9dpvttzque5/public_html/robymart.com/update/default.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/y9dpvttzque5/public_html/robymart.com/update/default.php on line 3

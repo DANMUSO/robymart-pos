@@ -1,0 +1,50 @@
+[15-Aug-2019 11:09:13 America/New_York] PHP Notice:  Undefined index: admin_username in /home/itsoedgv/demo.itsolution24.com/pos/30/install/done.php on line 34
+[29-Jun-2021 21:26:38 UTC] PHP Warning:  Constants may only evaluate to scalar values in /home/y9dpvttzque5/public_html/robymart.com/config.php on line 128
+[29-Jun-2021 21:26:38 UTC] PHP Warning:  Constants may only evaluate to scalar values in /home/y9dpvttzque5/public_html/robymart.com/config.php on line 136
+[23-Aug-2021 14:48:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function create_function() in /home/y9dpvttzque5/public_html/robymart.com/install/service.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/y9dpvttzque5/public_html/robymart.com/install/service.php on line 3
+[01-Oct-2023 07:34:53 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function system() in /home/robymart/public_html/_inc/helper/network.php:138
+Stack trace:
+#0 /home/robymart/public_html/install/database.php(150): getMAC()
+#1 /home/robymart/public_html/install/database.php(210): database_import()
+#2 {main}
+  thrown in /home/robymart/public_html/_inc/helper/network.php on line 138
+[01-Oct-2023 07:35:05 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function system() in /home/robymart/public_html/_inc/helper/network.php:138
+Stack trace:
+#0 /home/robymart/public_html/install/database.php(150): getMAC()
+#1 /home/robymart/public_html/install/database.php(210): database_import()
+#2 {main}
+  thrown in /home/robymart/public_html/_inc/helper/network.php on line 138
+[01-Oct-2023 07:36:19 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function system() in /home/robymart/public_html/_inc/helper/network.php:138
+Stack trace:
+#0 /home/robymart/public_html/install/database.php(150): getMAC()
+#1 /home/robymart/public_html/install/database.php(210): database_import()
+#2 {main}
+  thrown in /home/robymart/public_html/_inc/helper/network.php on line 138
+[01-Oct-2023 07:36:52 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function system() in /home/robymart/public_html/_inc/helper/network.php:138
+Stack trace:
+#0 /home/robymart/public_html/install/database.php(150): getMAC()
+#1 /home/robymart/public_html/install/database.php(210): database_import()
+#2 {main}
+  thrown in /home/robymart/public_html/_inc/helper/network.php on line 138
+[01-Oct-2023 07:37:34 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function system() in /home/robymart/public_html/_inc/helper/network.php:138
+Stack trace:
+#0 /home/robymart/public_html/install/database.php(150): getMAC()
+#1 /home/robymart/public_html/install/database.php(210): database_import()
+#2 {main}
+  thrown in /home/robymart/public_html/_inc/helper/network.php on line 138
+[01-Oct-2023 07:40:04 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function system() in /home/robymart/public_html/_inc/helper/network.php:138
+Stack trace:
+#0 /home/robymart/public_html/install/database.php(150): getMAC()
+#1 /home/robymart/public_html/install/database.php(210): database_import()
+#2 {main}
+  thrown in /home/robymart/public_html/_inc/helper/network.php on line 138
+[02-Oct-2023 17:25:04 Africa/Nairobi] PHP Warning:  system() has been disabled for security reasons in /home/robymart/public_html/modernpos/_inc/helper/network.php on line 138
+[02-Oct-2023 17:25:28 Africa/Nairobi] PHP Warning:  system() has been disabled for security reasons in /home/robymart/public_html/modernpos/_inc/helper/network.php on line 138
+[02-Oct-2023 17:27:55 Africa/Nairobi] PHP Warning:  system() has been disabled for security reasons in /home/robymart/public_html/modernpos/_inc/helper/network.php on line 138
+[02-Oct-2023 17:28:07 Africa/Nairobi] PHP Warning:  system() has been disabled for security reasons in /home/robymart/public_html/modernpos/_inc/helper/network.php on line 138
+[02-Oct-2023 17:28:25 Africa/Nairobi] PHP Warning:  system() has been disabled for security reasons in /home/robymart/public_html/modernpos/_inc/helper/network.php on line 138
+[02-Oct-2023 17:37:09 Africa/Nairobi] PHP Warning:  system() has been disabled for security reasons in /home/robymart/public_html/modernpos/_inc/helper/network.php on line 138
+[02-Oct-2023 17:38:46 Africa/Nairobi] PHP Warning:  system() has been disabled for security reasons in /home/robymart/public_html/modernpos/_inc/helper/network.php on line 138

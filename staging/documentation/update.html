@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Modern-POS | Update documentation</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  html{}
+		::-moz-selection{background:#333636;color:#C5D52B;}
+		::selection{background:#333636;color:#C5D52B;}
+  	.body{
+  		background-color:#EEEEEE;color:#383838;background-repeat:repeat;background-attachment:scroll;
+  		margin: 0;
+  		padding: 0;
+  		font-size: 20px;
+  	}
+  	.heading{
+  		font-weight: bold;
+  		border:2px dashed green;
+  		padding:10px;
+  	}
+  	.heading_2{
+  		border-bottom: 3px solid green;
+  		margin-top:80px;
+  	}
+  	h3{
+
+  	}
+  	ul li{
+  		font-size: 18px;
+  		margin-bottom: 1px;
+  	}
+  	.important{
+  		background-color:yellow;
+  		padding: 4px;
+  		font-size: 18px;
+  	}
+  	.sub-h{
+  		background-color:#ddd;
+  		display: inline-block;
+  		padding: 3px;
+  		width: 400px;
+  	}
+  </style>
+</head>
+<body>
+	<div class="container">
+	<h1 class="text-center heading">Process of update Modern POS</h1>
+
+<h2 class="heading_2">How to update v3.2 to v3.3 ?</h2>
+
+<h3 class="sub-h">Pre-Requirements:</h3>
+
+<ul>
+	<li> Need internet connection (Mandatory).</li>
+	<li> Disable Mysql strict mode, Run this this as sql for disable strict mode<code>set global sql_mode='';</code> (Mandatory). </li>
+	<li> Take a backup of database</li>
+	<li> Take a backup of all files/folder</li>
+</ul>
+<p><strong>Note:</strong> if you have installed the system in cpanel and use shared hosting, you may need to ask your hosting provider to disable the strict mode, because of lack of permission</p>
+<h3 class="sub-h">Follow this steps:</h3>
+ <ul>
+ 	<li>STEP-01: Download the update version from codecanyon. Extract the zip file and replace the old version</li>
+ 	<li>STEP-02: Browse: http://YOURSERVER.com/modernpos/update.php</li>
+ 	<img class="img-responsive" src="assets/images/step1.png">
+ 	<li>STEP-03: Provide your Envato username & product purchase code</li>
+ 	<li>STEP-04: Click on Go button</li>
+ 	<img class="img-responsive" src="assets/images/step2.png">
+ 	<li>STEP-05: Provide details information of old database(v3.2) like Hostname , Database, Username,Password & port</li>
+ 	<li>STEP-06: Click on Go button</li>
+ 	<li>It may take several minutes to complete, While completing then a pop up alert will be shown as "Update Successful! Congratulations, System successfully updated to version v3.3"
+ 	<!-- <li>STEP-07: After get successfull messeage run this as sql <code>set global sql_mode='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION';</code> -->
+ 	<li>You have done all process. Thank you</code>
+</li>
+ </ul>
+<h3 class="sub-h">Post-Requirements:</h3>
+
+<ul>
+	<li> Dashboard > store settings > Check these setting</li>
+	<li> Check Timezone in General section</li>
+	<li> Select deposit account in General section</li>
+	<li> Check Reference format In POS setting section</li>
+	<li> Click on Update</li>
+
+</ul>
+<p class="important">*** Don't forget to take a backup of your old database and files.</p>
+<p class="important">*** If there show any nearly unreadable error in alert box, then check your provided (STEP-05) value and try again!!!</p>
+<p class="important">*** You must check timezone after revalidate/update Modern POS</p>
+	</div>
+</body>
+</html>
